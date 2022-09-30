@@ -3,284 +3,293 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Checkers"
     Title="Checkers" WindowStyle="ThreeDBorderWindow" MinWidth="800" MinHeight="680"  Width="800" Height="680" WindowStartupLocation="CenterScreen" >
+    <Canvas>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Border  HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
 
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
-        <Border  HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
-            <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50" />
-                <ColumnDefinition Width="50" />
-                <ColumnDefinition Width="50" />
-                <ColumnDefinition Width="50" />
-                <ColumnDefinition Width="50" />
-                <ColumnDefinition Width="50" />
-                <ColumnDefinition Width="50" />
-                <ColumnDefinition Width="50" />
-            </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
 
-             </Grid.RowDefinitions>
+                    <Border Grid.Column="0" Grid.Row="0" Background="Black" >
 
-            <Border Grid.Column="0" Grid.Row="0" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" Click="Button_Click">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-            <Border Grid.Column="2" Grid.Row="0" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="1" Grid.Row="1" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="3" Grid.Row="1" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="0" Grid.Row="2" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="2" Grid.Row="2" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="1" Grid.Row="3" Background="Black" />
-                <Border Grid.Column="3" Grid.Row="3" Background="Black" />
-                <Border Grid.Column="4" Grid.Row="0" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="6" Grid.Row="0" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="5" Grid.Row="1" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="7" Grid.Row="1" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="4" Grid.Row="2" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="6" Grid.Row="2" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="5" Grid.Row="3" Background="Black" />
-                <Border Grid.Column="7" Grid.Row="3" Background="Black" />
-                <Border Grid.Column="0" Grid.Row="4" Background="Black" />
-            <Border Grid.Column="2" Grid.Row="4" Background="Black" />
-            <Border Grid.Column="1" Grid.Row="5" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="3" Grid.Row="5" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="0" Grid.Row="6" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="2" Grid.Row="6" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="1" Grid.Row="7" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="3" Grid.Row="7" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="4" Grid.Row="4" Background="Black" />
-            <Border Grid.Column="6" Grid.Row="4" Background="Black" />
-            <Border Grid.Column="5" Grid.Row="5" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="7" Grid.Row="5" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="4" Grid.Row="6" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="6" Grid.Row="6" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="5" Grid.Row="7" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
-                <Border Grid.Column="7" Grid.Row="7" Background="Black" >
-                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
-                        <Button.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="20"/>
-                            </Style>
-
-                        </Button.Resources>
-                    </Button>
-                </Border>
+                    </Border>
+                    <Border Grid.Column="2" Grid.Row="0" Background="Black" />
+                    <Border Grid.Column="1" Grid.Row="1" Background="Black" />
+                    <Border Grid.Column="3" Grid.Row="1" Background="Black" />
+                    <Border Grid.Column="0" Grid.Row="2" Background="Black" />
+                    <Border Grid.Column="2" Grid.Row="2" Background="Black" />
+                    <Border Grid.Column="1" Grid.Row="3" Background="Black" />
+                    <Border Grid.Column="3" Grid.Row="3" Background="Black" />
+                    <Border Grid.Column="4" Grid.Row="0" Background="Black" />
+                    <Border Grid.Column="6" Grid.Row="0" Background="Black" />
+                    <Border Grid.Column="5" Grid.Row="1" Background="Black" />
+                    <Border Grid.Column="7" Grid.Row="1" Background="Black" />
+                    <Border Grid.Column="4" Grid.Row="2" Background="Black" />
+                    <Border Grid.Column="6" Grid.Row="2" Background="Black" />
+                    <Border Grid.Column="5" Grid.Row="3" Background="Black" />
+                    <Border Grid.Column="7" Grid.Row="3" Background="Black" />
+                    <Border Grid.Column="0" Grid.Row="4" Background="Black" />
+                    <Border Grid.Column="2" Grid.Row="4" Background="Black" />
+                    <Border Grid.Column="1" Grid.Row="5" Background="Black" />
+                    <Border Grid.Column="3" Grid.Row="5" Background="Black" />
+                    <Border Grid.Column="0" Grid.Row="6" Background="Black" />
+                    <Border Grid.Column="2" Grid.Row="6" Background="Black" />
+                    <Border Grid.Column="1" Grid.Row="7" Background="Black" />
+                    <Border Grid.Column="3" Grid.Row="7" Background="Black" />
+                    <Border Grid.Column="4" Grid.Row="4" Background="Black" />
+                    <Border Grid.Column="6" Grid.Row="4" Background="Black" />
+                    <Border Grid.Column="5" Grid.Row="5" Background="Black" />
+                    <Border Grid.Column="7" Grid.Row="5" Background="Black" />
+                    <Border Grid.Column="4" Grid.Row="6" Background="Black" />
+                    <Border Grid.Column="6" Grid.Row="6" Background="Black" />
+                    <Border Grid.Column="5" Grid.Row="7" Background="Black" />
+                    <Border Grid.Column="7" Grid.Row="7" Background="Black" />
 
 
-            </Grid>
-    </Border>
-    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+        <Label x:Name="btn2"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="2" Canvas.Top="2" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+            
+        </Label>
+        <Label x:Name="btn3"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="2" Canvas.Top="2" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+        <Label x:Name="btn4"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="102" Canvas.Top="102" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+        <Label x:Name="btn5"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="52" Canvas.Top="52" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+        <Label x:Name="btn6"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="202" Canvas.Top="2" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+        <Label x:Name="btn7"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="302" Canvas.Top="2" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+        <Label x:Name="btn8"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="102" Canvas.Top="2" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+        <Label x:Name="btn9"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="152" Canvas.Top="52" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+        <Label x:Name="btn10"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="252" Canvas.Top="52" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+        <Label x:Name="btn11"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="352" Canvas.Top="52" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+        <Label x:Name="btn12"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="2" Canvas.Top="102" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+        <Label x:Name="btn13"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="202" Canvas.Top="102" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+        <Label x:Name="btn1"
+               MouseDown="Btn_OnMouseDown"
+               MouseMove="Btn_OnMouseMove"
+               MouseUp="Btn_OnMouseUp" Background="#00E9E1E1" RenderTransformOrigin="0,0" Height="50" Canvas.Left="302" Canvas.Top="102" Width="50" BorderBrush="#FFD22727" >
+            <Border CornerRadius="12" Padding="0" BorderThickness="20" BorderBrush="Brown">
+                <Label Content="Content"/>
+            </Border>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+
+        </Label>
+
+    </Canvas>
 </Window>

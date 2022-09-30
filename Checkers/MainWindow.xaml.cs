@@ -25,16 +25,18 @@ namespace Checkers
             InitializeComponent();
         }
 
+        private Point? _movePoint;
+
         private void Btn_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            _movePoint = e.GetPosition(btn);
-            btn.CaptureMouse();
+            _movePoint = e.GetPosition(btn2);
+            btn2.CaptureMouse();
         }
 
         private void Btn_OnMouseUp(object sender, MouseButtonEventArgs e)
         {
             _movePoint = null;
-            btn.ReleaseMouseCapture();
+            btn2.ReleaseMouseCapture();
         }
 
         private void Btn_OnMouseMove(object sender, MouseEventArgs e)
@@ -42,8 +44,8 @@ namespace Checkers
             if (_movePoint == null)
                 return;
             var p = e.GetPosition(this) - (Vector)_movePoint.Value;
-            Canvas.SetLeft(btn, p.X);
-            Canvas.SetTop(btn, p.Y);
+            Canvas.SetLeft(btn2, p.X);
+            Canvas.SetTop(btn2, p.Y);
         }
     }
 }
