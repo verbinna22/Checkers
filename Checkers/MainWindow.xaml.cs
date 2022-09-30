@@ -24,5 +24,26 @@ namespace Checkers
         {
             InitializeComponent();
         }
+
+        private void Btn_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            _movePoint = e.GetPosition(btn);
+            btn.CaptureMouse();
+        }
+
+        private void Btn_OnMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            _movePoint = null;
+            btn.ReleaseMouseCapture();
+        }
+
+        private void Btn_OnMouseMove(object sender, MouseEventArgs e)
+        {
+            if (_movePoint == null)
+                return;
+            var p = e.GetPosition(this) - (Vector)_movePoint.Value;
+            Canvas.SetLeft(btn, p.X);
+            Canvas.SetTop(btn, p.Y);
+        }
     }
 }

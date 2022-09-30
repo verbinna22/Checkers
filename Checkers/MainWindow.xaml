@@ -30,43 +30,257 @@
 
              </Grid.RowDefinitions>
 
-            <Border Grid.Column="0" Grid.Row="0" Background="Black" />
-            <Border Grid.Column="2" Grid.Row="0" Background="Black" />
-            <Border Grid.Column="1" Grid.Row="1" Background="Black" />
-            <Border Grid.Column="3" Grid.Row="1" Background="Black" />
-            <Border Grid.Column="0" Grid.Row="2" Background="Black" />
-            <Border Grid.Column="2" Grid.Row="2" Background="Black" />
-            <Border Grid.Column="1" Grid.Row="3" Background="Black" />
-            <Border Grid.Column="3" Grid.Row="3" Background="Black" />
-            <Border Grid.Column="4" Grid.Row="0" Background="Black" />
-            <Border Grid.Column="6" Grid.Row="0" Background="Black" />
-            <Border Grid.Column="5" Grid.Row="1" Background="Black" />
-            <Border Grid.Column="7" Grid.Row="1" Background="Black" />
-            <Border Grid.Column="4" Grid.Row="2" Background="Black" />
-            <Border Grid.Column="6" Grid.Row="2" Background="Black" />
-            <Border Grid.Column="5" Grid.Row="3" Background="Black" />
-            <Border Grid.Column="7" Grid.Row="3" Background="Black" />
-            <Border Grid.Column="0" Grid.Row="4" Background="Black" />
+            <Border Grid.Column="0" Grid.Row="0" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" Click="Button_Click">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+            <Border Grid.Column="2" Grid.Row="0" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="1" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="3" Grid.Row="1" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="2" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="2" Grid.Row="2" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="3" Background="Black" />
+                <Border Grid.Column="3" Grid.Row="3" Background="Black" />
+                <Border Grid.Column="4" Grid.Row="0" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="6" Grid.Row="0" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="5" Grid.Row="1" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="7" Grid.Row="1" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="4" Grid.Row="2" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="6" Grid.Row="2" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="5" Grid.Row="3" Background="Black" />
+                <Border Grid.Column="7" Grid.Row="3" Background="Black" />
+                <Border Grid.Column="0" Grid.Row="4" Background="Black" />
             <Border Grid.Column="2" Grid.Row="4" Background="Black" />
-            <Border Grid.Column="1" Grid.Row="5" Background="Black" />
-            <Border Grid.Column="3" Grid.Row="5" Background="Black" />
-            <Border Grid.Column="0" Grid.Row="6" Background="Black" />
-            <Border Grid.Column="2" Grid.Row="6" Background="Black" />
-            <Border Grid.Column="1" Grid.Row="7" Background="Black" />
-            <Border Grid.Column="3" Grid.Row="7" Background="Black" />
-            <Border Grid.Column="4" Grid.Row="4" Background="Black" />
+            <Border Grid.Column="1" Grid.Row="5" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="3" Grid.Row="5" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="6" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="2" Grid.Row="6" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="7" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="3" Grid.Row="7" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="4" Grid.Row="4" Background="Black" />
             <Border Grid.Column="6" Grid.Row="4" Background="Black" />
-            <Border Grid.Column="5" Grid.Row="5" Background="Black" />
-            <Border Grid.Column="7" Grid.Row="5" Background="Black" />
-            <Border Grid.Column="4" Grid.Row="6" Background="Black" />
-            <Border Grid.Column="6" Grid.Row="6" Background="Black" />
-            <Border Grid.Column="5" Grid.Row="7" Background="Black" />
-            <Border Grid.Column="7" Grid.Row="7" Background="Black" />
+            <Border Grid.Column="5" Grid.Row="5" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="7" Grid.Row="5" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="4" Grid.Row="6" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="6" Grid.Row="6" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="5" Grid.Row="7" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
+                <Border Grid.Column="7" Grid.Row="7" Background="Black" >
+                    <Button Content="" Margin="8,8,8,8" Opacity="0.6" RenderTransformOrigin="0,1" BorderBrush="#FFA82323" Background="#FFDC2929">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+
+                        </Button.Resources>
+                    </Button>
+                </Border>
 
 
-
-        </Grid>
+            </Grid>
     </Border>
-        <RadioButton Content="" IsChecked="False"/>
     </Grid>
 </Window>
