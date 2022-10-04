@@ -46,7 +46,7 @@ namespace Checkers
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    chekersList.Add(Creating(i, j));
+                    chekersList.Add(Creating(j, i));
                 }
             }
         }
