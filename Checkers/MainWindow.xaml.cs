@@ -34,7 +34,7 @@ namespace Checkers
             trans.X = 2 + 100*x + 50*(y%2);
             trans.Y = 2 + 50*y;
 
-            //btn2.RenderTransform = trans;
+            
             Canvas.SetLeft(btn2, trans.X);
             Canvas.SetTop(btn2, trans.Y);
             canv.Children.Add(btn2);
@@ -78,11 +78,6 @@ namespace Checkers
             if (_movePoint == null)
                 return;
             var p = e.GetPosition(this);
-            //var trans = new TranslateTransform();
-            //trans.X = p.X;
-            //trans.Y = p.Y;
-
-            //select.RenderTransform = trans;
             Canvas.SetLeft(select, p.X - 25);
             Canvas.SetTop(select, p.Y - 25);
         }
@@ -90,37 +85,35 @@ namespace Checkers
         {
             var curX = Canvas.GetLeft(uncorrect);
             var curY = Canvas.GetTop(uncorrect);
-            //var trans = new TranslateTransform();
-            //if (Convert.ToInt32(curY)/50 > 7)
-            //{
-            //    curY = 7 * 50 + 2;
-            //}
-            //else if (Convert.ToInt32(curY) / 50 < 0)
-            //{
-            //    curY = 2;
-            //}
-            //else
-            //{
-            //curY = Convert.ToDouble(Convert.ToInt32(curY) / 50 + 2);
-            //}
-            //if (Convert.ToInt32(curX) / 100 > 3)
-            //{
-            //    curX = 300 + Convert.ToInt32(curY)%100;
-            //}
-            //else if (Convert.ToInt32(curX) / 100 < 0)
-            //{
-            //    curX = Convert.ToInt32(curY) % 100;
-            //}
-            //else
-            //{
-            //curX = Convert.ToDouble(Convert.ToInt32(curY) / 100 + Convert.ToInt32(curY) % 100);
-            //}
-            //trans.X = 0;
-            //trans.Y = 0;
-            //uncorrect.LayoutTransform = trans;
-            Canvas.SetLeft(uncorrect, 50);
-            Canvas.SetTop(uncorrect, 50);
-            MessageBox.Show(curX.ToString(), curY.ToString());
+            
+            if (curY > 350)
+            {
+                curY = 352;
+            }
+            else if (curY < 2)
+            {
+                curY = 2;
+            }
+            else
+            {
+                curY = Convert.ToInt32(curY) / 50 * 50 + 2;
+            }
+            if (curX > 350)
+            {
+                curX = 300 + Convert.ToInt32(curY)%100;
+            }
+            else if (curX < 0)
+            {
+                curX = Convert.ToInt32(curY) % 100;
+            }
+            else
+            {
+                curX = Convert.ToInt32(curX) / 100 * 100 + Convert.ToInt32(curY) % 100;
+            }
+            
+            Canvas.SetLeft(uncorrect, curX);
+            Canvas.SetTop(uncorrect, curY);
+            
         }
     }
 }
