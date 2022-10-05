@@ -40,7 +40,26 @@ namespace Checkers
             canv.Children.Add(btn2);
             return btn2;
         }
+
+        public Ellipse CreatingComputerCheckers(int x, int y)
+        {
+            var btn2 = new Ellipse();
+            btn2.Width = 50;
+            btn2.Height = 50;
+
+            btn2.Fill = Brushes.GhostWhite;
+            var trans = new TranslateTransform();
+            trans.X = 2 + 100 * x + 50 * (y % 2);
+            trans.Y = 2 + 50 * y;
+
+
+            Canvas.SetLeft(btn2, trans.X);
+            Canvas.SetTop(btn2, trans.Y);
+            canv.Children.Add(btn2);
+            return btn2;
+        }
         List<Ellipse> chekersList = new List<Ellipse>();
+        List<Ellipse> chekersComputerList = new List<Ellipse>();
         double oldX;
         double oldY;
         bool dragging = false;
@@ -52,6 +71,7 @@ namespace Checkers
                 for (int j = 0; j < 4; j++)
                 {
                     chekersList.Add(Creating(j, i));
+                    chekersComputerList.Add(CreatingComputerCheckers(j, i));
                 }
             }
         }
@@ -122,8 +142,21 @@ namespace Checkers
             
             Canvas.SetLeft(uncorrect, curX);
             Canvas.SetTop(uncorrect, curY);
-            
-            if ((Math.Abs(curX - oldX) == 50) && (Math.Abs(curY - oldY) == 50))
+            int countCheck = 0;
+            foreach (var checker in chekersList)
+            {
+                var varX = Canvas.GetLeft(checker);
+                var varY = Canvas.GetTop(checker);
+                if ((curX == varX) && (curY == varY))
+                {
+                    countCheck++;
+                }
+                if (countCheck == 2)
+                {
+                    break;
+                }
+            }
+            if ((Math.Abs(curX - oldX) == 50) && (Math.Abs(curY - oldY) == 50) && (countCheck == 1))
             {
                 dragging = false;
             }
@@ -133,6 +166,12 @@ namespace Checkers
                 Canvas.SetTop(uncorrect, oldY);
                 dragging = false;
             }
+            ComputerStickBack();
+        }
+
+        public void ComputerStickBack()
+        {
+
         }
     }
 }
