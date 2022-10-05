@@ -83,14 +83,14 @@ namespace Checkers
         {
             var curX = Canvas.GetLeft(uncorrect);
             var curY = Canvas.GetTop(uncorrect);
-            var trans = new TranslateTransform();
+            //var trans = new TranslateTransform();
             if (Convert.ToInt32(curY)/50 > 7)
             {
-                //curY = 7 * 50 + 2;
+                curY = 7 * 50 + 2;
             }
             else if (Convert.ToInt32(curY) / 50 < 0)
             {
-                //curY = 2;
+                curY = 2;
             }
             else
             {
@@ -98,11 +98,11 @@ namespace Checkers
             }
             if (Convert.ToInt32(curX) / 100 > 3)
             {
-                //curX = 300 + Convert.ToInt32(curY)%100;
+                curX = 300 + Convert.ToInt32(curY)%100;
             }
             else if (Convert.ToInt32(curX) / 100 < 0)
             {
-                //curX = Convert.ToInt32(curY) % 100;
+                curX = Convert.ToInt32(curY) % 100;
             }
             else
             {
@@ -111,8 +111,8 @@ namespace Checkers
             //trans.X = 0;
             //trans.Y = 0;
             //uncorrect.LayoutTransform = trans;
-            Canvas.SetLeft(uncorrect, 0);
-            Canvas.SetTop(uncorrect, 0);
+            Canvas.SetLeft(uncorrect, Convert.ToInt32(curY/ 50) * 50);
+            Canvas.SetTop(uncorrect, Convert.ToInt32(curX/ 50) * 50);
         }
     }
 }

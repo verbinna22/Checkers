@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:Checkers"
     Title="Checkers" WindowStyle="ThreeDBorderWindow" MinWidth="800" MinHeight="680"  Width="800" Height="680" WindowStartupLocation="CenterScreen" >
-    <Canvas x:Name="canv">
+    <Canvas x:Name="canv" Margin="0,0,400,254">
         <Grid x:Name="gri" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Border  HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
                 <Grid>
