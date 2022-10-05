@@ -159,6 +159,7 @@ namespace Checkers
             if ((Math.Abs(curX - oldX) == 50) && (Math.Abs(curY - oldY) == 50) && (countCheck == 1))
             {
                 dragging = false;
+                ComputerStickBack();
             }
             else
             {
@@ -166,12 +167,72 @@ namespace Checkers
                 Canvas.SetTop(uncorrect, oldY);
                 dragging = false;
             }
-            ComputerStickBack();
+            
         }
 
         public void ComputerStickBack()
         {
-
+            var positionList = new int[10, 10];
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    positionList[i, j] = 0;
+                    if ((i%9 == 0) || (j%9 == 0))
+                    {
+                        positionList[i, j] = 1;
+                    }
+                }
+            }
+            foreach (var checker in chekersComputerList)
+            {
+                var x = 1 + Convert.ToInt32(Canvas.GetLeft(checker))/50;
+                var y = 1 + Convert.ToInt32(Canvas.GetTop(checker))/50;
+                positionList[x, y] = 1;
+            }
+            var computerFall = true;
+            foreach (var checker in chekersComputerList)
+            {
+                var x = 1 + Convert.ToInt32(Canvas.GetLeft(checker)) / 50;
+                var y = 1 + Convert.ToInt32(Canvas.GetTop(checker)) / 50;
+                if (positionList[x + 1, y + 1] == 0)
+                {
+                    Canvas.SetLeft(checker, 50*x);
+                    Canvas.SetTop(checker, 50*y);
+                    computerFall = false;
+                    break;
+                }
+                if (positionList[x + 1, y - 1] == 0)
+                {
+                    Canvas.SetLeft(checker, 50*x);
+                    Canvas.SetTop(checker, 50*(y - 2));
+                    computerFall = false;
+                    break;
+                }
+                if (positionList[x - 1, y + 1] == 0)
+                {
+                    Canvas.SetLeft(checker, 50*(x - 2));
+                    Canvas.SetTop(checker, 50*y);
+                    computerFall = false;
+                    break;
+                }
+                if (positionList[x - 1, y - 1] == 0)
+                {
+                    Canvas.SetLeft(checker, 50*(x - 2));
+                    Canvas.SetTop(checker, 50*(y - 2));
+                    computerFall = false;
+                    break;
+                }
+            }
+            if (computerFall)
+            {
+                HappyEnd();
+            }
+        }
+        public void HappyEnd()
+        {
+            MessageBox.Show("Противник не может сделать ход." +
+                "Победила дружба!");
         }
     }
 }
