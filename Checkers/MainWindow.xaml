@@ -4,7 +4,7 @@
     xmlns:local="clr-namespace:Checkers"
     Title="Checkers" WindowStyle="ThreeDBorderWindow" MinWidth="800" MinHeight="680"  Width="800" Height="680" WindowStartupLocation="CenterScreen" >
     <Canvas x:Name="canv">
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Grid x:Name="gri" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Border  HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" BorderThickness="2">
                 <Grid>
                     <Grid.ColumnDefinitions>

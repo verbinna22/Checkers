@@ -20,29 +20,29 @@ namespace Checkers
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Label Creating(int x, int y)
+        public Ellipse Creating(int x, int y)
         {
-            Label btn2 = new Label();
+            var btn2 = new Ellipse();
             btn2.Width = 50;
             btn2.Height = 50;
             
-            btn2.Background = Brushes.Brown;
-            btn2.AddHandler(Label.MouseDownEvent, new MouseButtonEventHandler(Btn_OnMouseDown));
-            btn2.AddHandler(Label.MouseMoveEvent, new MouseEventHandler(Btn_OnMouseMove));
-            btn2.AddHandler(Label.MouseUpEvent, new MouseButtonEventHandler(Btn_OnMouseUp));
+            btn2.Fill = Brushes.DarkGreen;
+            btn2.AddHandler(Ellipse.MouseDownEvent, new MouseButtonEventHandler(Btn_OnMouseDown));
+            btn2.AddHandler(Ellipse.MouseMoveEvent, new MouseEventHandler(Btn_OnMouseMove));
+            btn2.AddHandler(Ellipse.MouseUpEvent, new MouseButtonEventHandler(Btn_OnMouseUp));
             var trans = new TranslateTransform();
-            trans.X = 50*x + 5 + 50*(y%2);
-            trans.Y = 50*y + 5 + 50*(x%2);
+            trans.X = 2 + 100*x + 50*(y%2);
+            trans.Y = 2 + 50*y;
             
             btn2.RenderTransform = trans;
             canv.Children.Add(btn2);
             return btn2;
         }
-        List<Label> chekersList = new List<Label>();
+        List<Ellipse> chekersList = new List<Ellipse>();
         public MainWindow()
         {
             InitializeComponent();
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
@@ -55,26 +55,64 @@ namespace Checkers
         
         private void Btn_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            Label select = (Label)e.Source;
-            _movePoint = e.GetPosition(select);
+            Ellipse select = (Ellipse)e.Source;
+            _movePoint = e.GetPosition(this);
             select.CaptureMouse();
         }
 
         private void Btn_OnMouseUp(object sender, MouseButtonEventArgs e)
         {
-            Label select = (Label)e.Source;
+            Ellipse select = (Ellipse)e.Source;
             _movePoint = null;
+
             select.ReleaseMouseCapture();
+            CorrectingPosition(select);
+
         }
 
         private void Btn_OnMouseMove(object sender, MouseEventArgs e)
         {
-            Label select = (Label)e.Source;
+            Ellipse select = (Ellipse)e.Source;
             if (_movePoint == null)
                 return;
-            var p = e.GetPosition(select) - (Vector)_movePoint.Value;
+            var p = e.GetPosition(this) - (Vector)_movePoint.Value;
             Canvas.SetLeft(select, p.X);
             Canvas.SetTop(select, p.Y);
+        }
+        private void CorrectingPosition(Ellipse uncorrect)
+        {
+            var curX = Canvas.GetLeft(uncorrect);
+            var curY = Canvas.GetTop(uncorrect);
+            var trans = new TranslateTransform();
+            if (Convert.ToInt32(curY)/50 > 7)
+            {
+                //curY = 7 * 50 + 2;
+            }
+            else if (Convert.ToInt32(curY) / 50 < 0)
+            {
+                //curY = 2;
+            }
+            else
+            {
+                //curY = Convert.ToDouble(Convert.ToInt32(curY) / 50 + 2);
+            }
+            if (Convert.ToInt32(curX) / 100 > 3)
+            {
+                //curX = 300 + Convert.ToInt32(curY)%100;
+            }
+            else if (Convert.ToInt32(curX) / 100 < 0)
+            {
+                //curX = Convert.ToInt32(curY) % 100;
+            }
+            else
+            {
+                //curX = Convert.ToDouble(Convert.ToInt32(curY) / 100 + Convert.ToInt32(curY) % 100);
+            }
+            //trans.X = 0;
+            //trans.Y = 0;
+            //uncorrect.LayoutTransform = trans;
+            Canvas.SetLeft(uncorrect, 0);
+            Canvas.SetTop(uncorrect, 0);
         }
     }
 }
