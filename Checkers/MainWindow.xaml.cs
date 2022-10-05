@@ -31,8 +31,8 @@ namespace Checkers
             btn2.AddHandler(Ellipse.MouseMoveEvent, new MouseEventHandler(Btn_OnMouseMove));
             btn2.AddHandler(Ellipse.MouseUpEvent, new MouseButtonEventHandler(Btn_OnMouseUp));
             var trans = new TranslateTransform();
-            trans.X = 2 + 100*x + 50*(y%2);
-            trans.Y = 2 + 50*y;
+            trans.X = 2 + 100*x + 50 - 50*(y%2);
+            trans.Y = 250 + 2 + 50*y;
 
             
             Canvas.SetLeft(btn2, trans.X);
@@ -41,6 +41,9 @@ namespace Checkers
             return btn2;
         }
         List<Ellipse> chekersList = new List<Ellipse>();
+        double oldX;
+        double oldY;
+        bool dragging = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -60,6 +63,12 @@ namespace Checkers
             Ellipse select = (Ellipse)e.Source;
             _movePoint = e.GetPosition(this);
             select.CaptureMouse();
+            if (!dragging)
+            {
+                dragging = true;
+                oldX = Canvas.GetLeft(select);
+                oldY = Canvas.GetTop(select);
+            }
         }
 
         private void Btn_OnMouseUp(object sender, MouseButtonEventArgs e)
@@ -114,6 +123,16 @@ namespace Checkers
             Canvas.SetLeft(uncorrect, curX);
             Canvas.SetTop(uncorrect, curY);
             
+            if ((Math.Abs(curX - oldX) == 50) && (Math.Abs(curY - oldY) == 50))
+            {
+                dragging = false;
+            }
+            else
+            {
+                Canvas.SetLeft(uncorrect, oldX);
+                Canvas.SetTop(uncorrect, oldY);
+                dragging = false;
+            }
         }
     }
 }
