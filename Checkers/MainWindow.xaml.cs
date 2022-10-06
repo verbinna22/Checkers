@@ -156,8 +156,66 @@ namespace Checkers
                     break;
                 }
             }
-            if ((Math.Abs(curX - oldX) == 50) && (Math.Abs(curY - oldY) == 50) && (countCheck == 1))
+            var positionList = new int[10, 10];
+            for (int i = 0; i < 10; i++)
             {
+                for (int j = 0; j < 10; j++)
+                {
+                    positionList[i, j] = 0;
+                    if ((i % 9 == 0) || (j % 9 == 0))
+                    {
+                        positionList[i, j] = 3;
+                    }
+                }
+            }
+            foreach (var checker in chekersComputerList)
+            {
+                var x = 1 + Convert.ToInt32(Canvas.GetLeft(checker)) / 50;
+                var y = 1 + Convert.ToInt32(Canvas.GetTop(checker)) / 50;
+                positionList[x, y] = 1;
+            }
+            var myEating = false;
+            foreach (var checker in chekersList)
+            {
+                var x = 1 + Convert.ToInt32(Canvas.GetLeft(checker)) / 50;
+                var y = 1 + Convert.ToInt32(Canvas.GetTop(checker)) / 50;
+                if ((x == 1 + Convert.ToInt32(curX)/50)&&(y == 1 + Convert.ToInt32(curY)/50))
+                {
+                    x = 1 + Convert.ToInt32(oldX) / 50;
+                    y = 1 + Convert.ToInt32(oldY) / 50;
+                }
+                if ((positionList[x + 1, y + 1] == 1) )
+                {
+                    if (positionList[x + 2, y + 2] == 0)
+                    myEating = true;
+                }
+                else if ((positionList[x - 1, y + 1] == 1))
+                {
+                    if (positionList[x - 2, y + 2] == 0)
+                        myEating = true;
+                }
+                else if ((positionList[x + 1, y - 1] == 1))
+                {
+                    if (positionList[x + 2, y - 2] == 0)
+                        myEating = true;
+                }
+                else if ((positionList[x - 1, y - 1] == 1))
+                {
+                    if (positionList[x - 2, y - 2] == 0)
+                        myEating = true;
+                }
+            }
+            if ((Math.Abs(curX - oldX) == 50) && (Math.Abs(curY - oldY) == 50) && (countCheck == 1) && (! myEating) && positionList[Convert.ToInt32(curX) / 50 + 1, Convert.ToInt32(curY) / 50 + 1] != 1)
+            {
+                dragging = false;
+                ComputerStickBack();
+            }
+            else if ((myEating) && (positionList[Convert.ToInt32(curX)/50 + 1, Convert.ToInt32(curY)/50 + 1] == 1) &&
+                (positionList[2 *Convert.ToInt32(curX) / 50 - Convert.ToInt32(oldX) / 50 + 1, 2 * Convert.ToInt32(curY) / 50 - Convert.ToInt32(oldY) / 50 + 1] == 0))
+            {
+                Canvas.SetLeft(uncorrect, 2 * curX - oldX);
+                Canvas.SetTop(uncorrect, 2 * curY - oldY);
+                delComputerChecker(Convert.ToInt32(curX) / 50, Convert.ToInt32(curY) / 50);
                 dragging = false;
                 ComputerStickBack();
             }
@@ -172,6 +230,10 @@ namespace Checkers
 
         public void ComputerStickBack()
         {
+            if (chekersComputerList.Count == 0)
+            {
+                MessageBox.Show("Мои поздравления! Вы победили!");
+            }
             var positionList = new int[10, 10];
             for (int i = 0; i < 10; i++)
             {
@@ -277,6 +339,10 @@ namespace Checkers
                     HappyEnd();
                 }
             }
+            if (chekersList.Count == 0)
+            {
+                MessageBox.Show("К сожалению, Вы проиграли!");
+            }
         }
         public void HappyEnd()
         {
@@ -294,6 +360,20 @@ namespace Checkers
                 {
                     checker.Visibility = Visibility.Hidden;
                     chekersList.Remove(checker);
+                    break;
+                }
+            }
+        }
+        public void delComputerChecker(int x, int y)
+        {
+            foreach (var checker in chekersComputerList)
+            {
+                var checkX = Canvas.GetLeft(checker);
+                var checkY = Canvas.GetTop(checker);
+                if ((Math.Abs(checkX - x * 50) <= 10.0) && (Math.Abs(checkY - y * 50) <= 10.0))
+                {
+                    checker.Visibility = Visibility.Hidden;
+                    chekersComputerList.Remove(checker);
                     break;
                 }
             }
