@@ -55,6 +55,8 @@ namespace Checkers
         double oldX;
         double oldY;
         bool dragging = false;
+        bool dragAwait = true;
+        bool playing = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -62,12 +64,20 @@ namespace Checkers
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    myCheckersList.Add(CreatingMyCheckers(j, i));
                     chekersComputerList.Add(CreatingComputerCheckers(j, i));
                 }
             }
-            MessageBox.Show("Это - шашки! Обычные шашки. Без дамок и пр." +
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    myCheckersList.Add(CreatingMyCheckers(j, i));
+                }
+            }
+            MessageBox.Show("Это - шашки!" +
                 " Если Вы хотите передвинуть шашку, делайте это осторожно!" +
+                "Дамки временно не поддерживаются, зато теперь все шашки могут" +
+                " ходить назад!" +
                 " Вы ходите первым! Удачной игры!");
         }
 
@@ -98,12 +108,15 @@ namespace Checkers
 
         private void Btn_OnMouseMove(object someObjectOfEvent, MouseEventArgs evention)
         {
-            Ellipse select = (Ellipse)evention.Source;
-            if (lastPointsOfWindow == null)
-                return;
-            var pointing = evention.GetPosition(this);
-            Canvas.SetLeft(select, pointing.X - 25);
-            Canvas.SetTop(select, pointing.Y - 25);
+            if (dragAwait)
+            {
+                Ellipse select = (Ellipse)evention.Source;
+                if (lastPointsOfWindow == null)
+                    return;
+                var pointing = evention.GetPosition(this);
+                Canvas.SetLeft(select, pointing.X - 25);
+                Canvas.SetTop(select, pointing.Y - 25);
+            }
         }
         private void CorrectingPosition(Ellipse uncorrect)
         {
@@ -120,7 +133,7 @@ namespace Checkers
             }
             else
             {
-                curY = Convert.ToInt32(curY) / 50 * 50 + 2;
+                curY = (Convert.ToInt32(curY) + 25)/ 50 * 50 + 2;
             }
             if (curX > 350)
             {
@@ -132,7 +145,7 @@ namespace Checkers
             }
             else
             {
-                curX = Convert.ToInt32(curX) / 100 * 100 + Convert.ToInt32(curY) % 100;
+                curX = (Convert.ToInt32(curX) + 25) / 100 * 100 + Convert.ToInt32(curY) % 100;
             }
 
             Canvas.SetLeft(uncorrect, curX);
@@ -168,6 +181,12 @@ namespace Checkers
                 var x = 1 + Convert.ToInt32(Canvas.GetLeft(checker)) / 50;
                 var y = 1 + Convert.ToInt32(Canvas.GetTop(checker)) / 50;
                 positionList[x, y] = 1;
+            }
+            foreach (var checker in myCheckersList)
+            {
+                var x = 1 + Convert.ToInt32(Canvas.GetLeft(checker)) / 50;
+                var y = 1 + Convert.ToInt32(Canvas.GetTop(checker)) / 50;
+                if (positionList[x, y] != 1) positionList[x, y] = 2;
             }
             var myEating = false;
             foreach (var checker in myCheckersList)
@@ -227,21 +246,19 @@ namespace Checkers
 
         }
 
-        public void ComputerStickBack()
+        public async void ComputerStickBack()
         {
+            dragAwait = false;
+            await Task.Delay(200);
+            dragAwait = true;
             if (chekersComputerList.Count == 0)
             {
-
-                try
-                {
-                    MessageBox.Show("Мои поздравления! Вы победили!");
-                    System.Windows.Application.Current.Shutdown();
-                }
-                catch
-                {
-                    return;
-                }
-
+                    if (playing)
+                    {
+                        playing = false;
+                        MessageBox.Show("Мои поздравления! Вы победили!");
+                        System.Windows.Application.Current.Shutdown();
+                    }
             }
             var positionList = new int[10, 10];
             for (int i = 0; i < 10; i++)
@@ -275,32 +292,32 @@ namespace Checkers
                 var y = 1 + Convert.ToInt32(Canvas.GetTop(checker)) / 50;
                 if ((positionList[x + 1, y + 1] == 2) && (positionList[x + 2, y + 2] == 0))
                 {
-                    Canvas.SetLeft(checker, 50 * (x + 1));
-                    Canvas.SetTop(checker, 50 * (y + 1));
+                    Canvas.SetLeft(checker, 2 + 50 * (x + 1));
+                    Canvas.SetTop(checker, 2 + 50 * (y + 1));
                     delChecker(x, y);
                     computerEat = true;
                     break;
                 }
                 if ((positionList[x + 1, y - 1] == 2) && (positionList[x + 2, y - 2] == 0))
                 {
-                    Canvas.SetLeft(checker, 50 * (x + 1));
-                    Canvas.SetTop(checker, 50 * (y - 3));
+                    Canvas.SetLeft(checker, 2 + 50 * (x + 1));
+                    Canvas.SetTop(checker, 2 + 50 * (y - 3));
                     delChecker(x, y - 2);
                     computerEat = true;
                     break;
                 }
                 if ((positionList[x - 1, y + 1] == 2) && (positionList[x - 2, y + 2] == 0))
                 {
-                    Canvas.SetLeft(checker, 50 * (x - 3));
-                    Canvas.SetTop(checker, 50 * (y + 1));
+                    Canvas.SetLeft(checker, 2 + 50 * (x - 3));
+                    Canvas.SetTop(checker, 2 + 50 * (y + 1));
                     delChecker(x - 2, y);
                     computerEat = true;
                     break;
                 }
                 if ((positionList[x - 1, y - 1] == 2) && (positionList[x - 2, y - 2] == 0))
                 {
-                    Canvas.SetLeft(checker, 50 * (x - 3));
-                    Canvas.SetTop(checker, 50 * (y - 3));
+                    Canvas.SetLeft(checker, 2 + 50 * (x - 3));
+                    Canvas.SetTop(checker, 2 + 50 * (y - 3));
                     delChecker(x - 2, y - 2);
                     computerEat = true;
                     break;
@@ -308,6 +325,8 @@ namespace Checkers
             }
 
             var computerFall = true;
+            var random = new Random();
+            chekersComputerList = chekersComputerList.OrderBy(x => random.Next()).ToList<Ellipse>();
             if (!computerEat)
             {
                 foreach (var checker in chekersComputerList)
@@ -316,65 +335,59 @@ namespace Checkers
                     var y = 1 + Convert.ToInt32(Canvas.GetTop(checker)) / 50;
                     if (positionList[x + 1, y + 1] == 0)
                     {
-                        Canvas.SetLeft(checker, 50 * x);
-                        Canvas.SetTop(checker, 50 * y);
+                        Canvas.SetLeft(checker, 2 + 50 * x);
+                        Canvas.SetTop(checker, 2 + 50 * y);
                         computerFall = false;
                         break;
                     }
                     if (positionList[x + 1, y - 1] == 0)
                     {
-                        Canvas.SetLeft(checker, 50 * x);
-                        Canvas.SetTop(checker, 50 * (y - 2));
+                        Canvas.SetLeft(checker, 2 + 50 * x);
+                        Canvas.SetTop(checker, 2 + 50 * (y - 2));
                         computerFall = false;
                         break;
                     }
                     if (positionList[x - 1, y + 1] == 0)
                     {
-                        Canvas.SetLeft(checker, 50 * (x - 2));
-                        Canvas.SetTop(checker, 50 * y);
+                        Canvas.SetLeft(checker, 2 + 50 * (x - 2));
+                        Canvas.SetTop(checker, 2 + 50 * y);
                         computerFall = false;
                         break;
                     }
                     if (positionList[x - 1, y - 1] == 0)
                     {
-                        Canvas.SetLeft(checker, 50 * (x - 2));
-                        Canvas.SetTop(checker, 50 * (y - 2));
+                        Canvas.SetLeft(checker, 2 + 50 * (x - 2));
+                        Canvas.SetTop(checker, 2 + 50 * (y - 2));
                         computerFall = false;
                         break;
                     }
                 }
                 if (computerFall)
                 {
-                    //HappyEnd();
+                    HappyEnd();
                 }
             }
             if (myCheckersList.Count == 0)
             {
 
-                try
-                {
-                    MessageBox.Show("К сожалению, Вы проиграли!");
-                    System.Windows.Application.Current.Shutdown();
-                }
-                catch
-                {
-                    return;
-                }
+                    if (playing)
+                    {
+                        MessageBox.Show("К сожалению, Вы проиграли!");
+                        playing = false;
+                        System.Windows.Application.Current.Shutdown();
+                    }
             }
         }
         public void HappyEnd()
         {
 
-            try
-            {
-                MessageBox.Show("Противник не может сделать ход. " +
-                "Победила дружба!");
-                System.Windows.Application.Current.Shutdown();
-            }
-            catch
-            {
-                return;
-            }
+               if (playing)
+                {
+                playing = false;
+                    MessageBox.Show("Противник не может сделать ход. " +
+                    "Победила дружба!");
+                    System.Windows.Application.Current.Shutdown();
+                }
         }
 
         public void delChecker(int x, int y)

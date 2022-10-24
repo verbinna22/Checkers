@@ -69,7 +69,23 @@
                 </Grid>
             </Border>
         </Grid>
-        
+        <Label Content="A" Canvas.Left="409" Canvas.Top="361"/>
+        <Label Content="B" Canvas.Left="409" Canvas.Top="314" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="C" Canvas.Left="409" Canvas.Top="260" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.47,-0.563"/>
+        <Label Content="D" Canvas.Left="409" Canvas.Top="219" RenderTransformOrigin="0.47,-0.563" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="E" Canvas.Left="409" Canvas.Top="163" RenderTransformOrigin="0.47,-0.563" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="F" Canvas.Left="409" Canvas.Top="117" RenderTransformOrigin="0.47,-0.563" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="G" Canvas.Left="409" Canvas.Top="66" RenderTransformOrigin="0.47,-0.563" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="H" Canvas.Left="409" Canvas.Top="15" RenderTransformOrigin="0.47,-0.563" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="8" Canvas.Left="372" Canvas.Top="409" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="7" Canvas.Left="320" Canvas.Top="409" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="6" Canvas.Left="267" Canvas.Top="409" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="5" Canvas.Left="217" Canvas.Top="409" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="4" Canvas.Left="168" Canvas.Top="409" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="3" Canvas.Left="115" Canvas.Top="409" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="2" Canvas.Left="69" Canvas.Top="409" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="1" Canvas.Left="15" Canvas.Top="409" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
 
     </Canvas>
 </Window>
